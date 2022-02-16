@@ -18,9 +18,10 @@ body::after {
   height: 500px;
   border-radius: 50%;
   position: absolute;
-  bottom: -250px;
-  left: -100px;
+  bottom: -195px;
+  left: -225px;
   background-color: #20c3c662;
+  z-index: -1;
 }
 body::before {
   content: "";
@@ -29,8 +30,19 @@ body::before {
   border-radius: 50%;
   position: absolute;
   bottom: -250px;
-  left: 200px;
+  left: 50px;
   background-color: #20c3c662;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  body::after {
+    bottom: -160px;
+    left: -316px;
+  }
+  body::before {
+    bottom: -215px;
+    left: -125px;
+  }
 }
 ul {
   list-style: none;
@@ -78,6 +90,56 @@ img {
   font-size: 22px;
   font-weight: bold;
 }
+.navbar .divider {
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  direction: rtl;
+}
+.navbar .divider span {
+  width: 40px;
+  height: 2px;
+  background-color: var(--main-color);
+  display: inline-block;
+  margin: 3px 0;
+}
+.navbar .divider span:nth-child(1) {
+  width: 40px;
+  transition: all 0.4s linear;
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -ms-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+}
+.navbar .divider span:nth-child(2) {
+  width: 30px;
+  transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+}
+.navbar .divider span:nth-child(3) {
+  width: 15px;
+  transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+}
+.navbar .divider:hover span:nth-child(2) {
+  width: 40px;
+}
+.navbar .divider:hover span:nth-child(3) {
+  width: 40px;
+}
 .navbar .links ul {
   display: flex;
   justify-content: space-around;
@@ -121,6 +183,44 @@ img {
   background-color: transparent;
   color: var(--main-color);
 }
+
+@media (max-width: 768px) {
+  .navbar .links {
+    position: relative;
+  }
+  .navbar .links .divider {
+    display: flex;
+  }
+  .navbar .links ul {
+    flex-direction: column;
+    background-color: var(--logo-color);
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+    z-index: -5;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s linear;
+    border-radius: 15px;
+  }
+  .navbar .links a.active::before {
+    width: 0;
+  }
+  .navbar .links ul a {
+    color: #eee;
+    border-bottom: 1px solid var(--main-color);
+  }
+  .navbar .links a.active {
+    color: #fff;
+    border-bottom: 3px solid var(--main-color);
+  }
+  .navbar .join {
+    display: none;
+  }
+}
 /* End Header */
 /* Start Home Landing Page And About Page */
 .main-content {
@@ -162,13 +262,32 @@ img {
   border: 2px solid var(--main-color);
   transition: background-color 0.3s linear;
 }
+.main-content .text .join {
+  display: none;
+}
 .main-content .text a:hover {
   background-color: transparent;
   color: var(--main-color);
 }
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
+  .main-content {
+    text-align: center;
+  }
   .main-content .card {
-    height: calc(100vh - 55px);
+    display: block;
+  }
+  .main-content .text p {
+    width: auto;
+  }
+  .main-content .img {
+    display: none;
+  }
+  .main-content .text a:not(.main-content .text .join a) {
+    width: 100%;
+  }
+  .main-content .text .join {
+    display: flex;
+    justify-content: space-around;
   }
 }
 /* End Home Landing Page And About Page */
@@ -178,6 +297,7 @@ img {
 }
 .contact form {
   display: flex;
+  justify-content: space-around;
 }
 .contact form input {
   width: 200px;
@@ -222,6 +342,11 @@ img {
   margin: 10px auto;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .contact form input {
+    width: 50%;
+  }
+}
 /* End Contact Page */
 /* Start Sign in Ang Sign Up */
 .sign h1 {
@@ -234,7 +359,7 @@ img {
 }
 .sign .form {
   width: 400px;
-  box-shadow: inset 0 0 10px 0px rgba(173, 173, 173, 0.692);
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   height: 400px;
   margin: 0 auto;
@@ -250,14 +375,15 @@ img {
   border-radius: 20px;
   padding: 15px 10px;
   background-color: #20c3c662;
+  color: #333;
 }
 .sign .form input:focus {
   outline: none;
 }
 .sign .form input::placeholder {
-  color: #fff;
+  color: #333;
 }
-.sign .form a {
+.sign .form a:not(.sign .massage.bad a) {
   color: var(--main-color);
   font-size: 14px;
 }
@@ -282,5 +408,19 @@ img {
   color: var(--main-color);
   font-size: 20px;
   cursor: pointer;
+}
+.sign .massage.good {
+  color: var(--main-color);
+  font-size: 20px;
+}
+.sign .massage.bad {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .sign .form {
+    width: 100%;
+  }
 }
 /* End Sign in */

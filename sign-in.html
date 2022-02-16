@@ -15,6 +15,7 @@
     />
   </head>
   <body>
+    <div id="divider"></div>
     <!-- Start Header -->
     <header class="navbar">
       <div class="card">
@@ -27,15 +28,16 @@
     </header>
     <!-- End Header -->
     <!-- Start Sign In -->
-    <section class="sign">
+    <section class="sign" id="sign-in">
       <div class="card">
         <h1>Sign In</h1>
         <div class="form">
-          <input type="text" name="" id="" placeholder="User Name" />
+          <input type="text" name="" id="name" placeholder="User Name" />
           <!-- <input type="email" name="" id="" placeholder="Email" /> -->
-          <input type="password" name="" id="" placeholder="Password" />
+          <input type="password" name="" id="password" placeholder="Password" />
           <a href="#">Forget Your Password?</a>
-          <button>Sign In</button>
+          <button onclick="signIn()">Sign In</button>
+          <div class="massage" id="massage"></div>
           <div class="or">- OR -</div>
           <div class="icons">
             <i class="fab fa-facebook" title="Facebook"></i>
@@ -45,5 +47,6 @@
       </div>
     </section>
     <!-- End Sign In -->
+    <script src="js/main.js"></script>
   </body>
 </html>
