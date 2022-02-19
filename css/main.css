@@ -76,19 +76,19 @@ img {
 }
 /* Start Header */
 .navbar {
-  height: 55px;
+  height: 70px;
 }
 .navbar .card {
   display: flex;
   align-items: center;
-  height: 55px;
+  height: 70px;
   justify-content: space-between;
 }
 .navbar .logo,
 .navbar .logo a {
   color: var(--logo-color);
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 900;
 }
 .navbar .divider {
   display: none;
@@ -158,8 +158,8 @@ img {
   position: absolute;
   background-color: var(--main-color);
   width: 100%;
-  height: 6px;
-  top: 0.5px;
+  height: 7px;
+  top: -8px;
   border-radius: 10px;
 }
 .navbar .join a {
@@ -276,6 +276,9 @@ img {
   .main-content .card {
     display: block;
   }
+  .main-content .text h1 {
+    font-size: 45px;
+  }
   .main-content .text p {
     width: auto;
   }
@@ -298,11 +301,16 @@ img {
 .contact form {
   display: flex;
   justify-content: space-around;
+  position: relative;
+}
+.contact form span {
+  position: relative;
+  width: 100%;
 }
 .contact form input {
   width: 200px;
   height: 45px;
-  padding: 10px;
+  padding: 10px 35px;
   color: var(--main-color);
   border-radius: 20px;
   border: 2px solid var(--main-color);
@@ -314,6 +322,18 @@ img {
 }
 .contact form input::placeholder,
 .contact textarea::placeholder {
+  color: var(--main-color);
+}
+.contact form i.fa-user {
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  color: var(--main-color);
+}
+.contact form i.fa-lock {
+  position: absolute;
+  left: 22px;
+  top: 22px;
   color: var(--main-color);
 }
 .contact textarea {
@@ -343,8 +363,14 @@ img {
   cursor: pointer;
 }
 @media (max-width: 768px) {
+  .contact form {
+    justify-content: normal;
+  }
   .contact form input {
-    width: 50%;
+    width: 96%;
+  }
+  .contact form {
+    flex-wrap: wrap;
   }
 }
 /* End Contact Page */
@@ -368,12 +394,16 @@ img {
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+.sign .form span {
+  position: relative;
 }
 .sign .form input {
-  width: 90%;
+  width: 100%;
   border: 2px solid #20c3c662;
   border-radius: 20px;
-  padding: 15px 10px;
+  padding: 15px 35px;
   background-color: #20c3c662;
   color: #333;
 }
@@ -381,7 +411,25 @@ img {
   outline: none;
 }
 .sign .form input::placeholder {
-  color: #333;
+  color: #fff;
+}
+.sign .form i.fa-user {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  color: #fff;
+}
+.sign .form i.fa-lock {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  color: #fff;
+}
+.sign .form i.fa-envelope {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  color: #fff;
 }
 .sign .form a:not(.sign .massage.bad a) {
   color: var(--main-color);

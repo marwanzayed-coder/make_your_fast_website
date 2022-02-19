@@ -32,9 +32,14 @@
       <div class="card">
         <h1>Sign In</h1>
         <div class="form">
-          <input type="text" name="" id="name" placeholder="User Name" />
-          <!-- <input type="email" name="" id="" placeholder="Email" /> -->
-          <input type="password" name="" id="password" placeholder="Password" />
+          <span>
+            <input type="text" id="name" placeholder="User Name" />
+            <i class="fa-solid fa-user"></i>
+          </span>
+          <span>
+            <input type="password" id="password" placeholder="Password" />
+            <i class="fa-solid fa-lock"></i>
+          </span>
           <a href="#">Forget Your Password?</a>
           <button onclick="signIn()">Sign In</button>
           <div class="massage" id="massage"></div>
